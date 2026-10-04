@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { CandlesService } from './candles.service.js';
+import { CandlePersistenceService } from './candle-persistence.service.js';
 import { NormalizationModule } from '../normalization/normalization.module.js';
 
 @Module({
   imports: [NormalizationModule],
-  providers: [CandlesService],
+  providers: [CandlePersistenceService, CandlesService],
   exports: [CandlesService],
 })
 export class CandlesModule {}
